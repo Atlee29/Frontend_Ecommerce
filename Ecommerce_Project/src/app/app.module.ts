@@ -10,7 +10,9 @@ import { SideManuComponent } from './templateComponents/side-manu/side-manu.comp
 import { HeaderComponent } from './templateComponents/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ContactComponent } from './entryComponents/contact/contact.component';
+import { ReviewComponent } from './entryComponents/review/review.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {HttpClientModule} from '@angular/common/http'
     LoginComponent,
     DashboardComponent,
     SideManuComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContactComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
