@@ -16,8 +16,11 @@ import { ContactsComponent } from './entryComponents/contacts/contacts.component
 import { ReviewsComponent } from './entryComponents/reviews/reviews.component';
 import { SidemenuComponent } from './templateComponents/side-menu/sidemenu.component';
 import { RegisterComponent } from './entryComponents/register/register.component';
+import { Router } from '@angular/router';
+import { EmployeeDashboardComponent } from './employeetemplates/employee-dashboard/employee-dashboard.component';
+import { EmployeeHeaderComponent } from './employeetemplates/employee-header/employee-header.component';
+import { EmployeeSideManuComponent } from './employeetemplates/employee-side-manu/employee-side-manu.component';
 
-import { Router } from '@angular/router'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,11 @@ import { Router } from '@angular/router'
     AboutusComponent,
     ContactsComponent,
     ReviewsComponent,
-    RegisterComponent
+    RegisterComponent,
+    EmployeeDashboardComponent,
+    EmployeeHeaderComponent,
+    EmployeeSideManuComponent,
+    
 
 
   ],

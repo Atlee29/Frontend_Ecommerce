@@ -8,6 +8,7 @@ export class Customer {
     customerName:string;
     customerEmail:string;
     customerMobileNumber:number;
+    customerGender:string;
     customerUserDetails:UserDetails;
     customerAddress:Address;
     wishList:Products[];
