@@ -15,34 +15,45 @@ export class LoginComponent {
     ){}
 
   loginForm : FormGroup;
-  userlist:UserDetails[];
+  userDetails:UserDetails;
 
   ngOnInit(){
     this.loginForm = this.formBuilder.group({
       userName : [],
       password : []
     })
-   this.getUserList();
+   this.getUserDetails();
   }
 
-  getUserList(){
-    this.employeeService.getAllUserDetails().subscribe((users:UserDetails[])=>{
-    this.userlist=users;
+  getUserDetails(){
+    this.employeeService.getUserDetails(this.loginForm.controls['userName'].value
+    ,this.loginForm.controls['password'].value)
+    .subscribe((users:UserDetails)=>{
+    this.userDetails=users;
     })
   }
 
   onLogin(){
-    this.userlist.forEach(user=>{
-      if(this.loginForm.controls['userName'].value==user.userName 
-      && this.loginForm.controls['password'].value==user.password){
-             
-              sessionStorage.setItem('userType',user.userType)
+  
+      if(this.loginForm.controls['userName'].value==this.userDetails.userName 
+      && this.loginForm.controls['password'].value==this.userDetails.password){
+             console.log(this.userDetails);
+              sessionStorage.setItem('userType',this.userDetails.userType)
               this.router.navigateByUrl('');
+      }
+      else if(this.loginForm.controls['userName'].value==this.userDetails.userName
+      && this.loginForm.controls['password'].value==this.userDetails.password
+      && this.loginForm.controls['userType'].value==this.userDetails.userType)
+      {
+        console.log();
+        
+        sessionStorage.setItem('userType',this.userDetails.userType)
+        this.router.navigateByUrl('');
       }
    
       
-    });
-  }
+    }
+  
 
   registerData(){
     this.router.navigateByUrl('dash/register');
