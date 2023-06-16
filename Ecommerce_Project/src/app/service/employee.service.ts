@@ -9,8 +9,9 @@ export class EmployeeService {
   constructor(private httpClient:HttpClient) { }
 
 
-  getUserDetails(username:string,password:string){
-    return this.httpClient.get(''+username+'/'+password)
+  getUserDetails(userName:string,password:string){
+    return this.httpClient.get('http://localhost:8989/login/getUserNameAndPassword/'+userName+'/'+password)
+    
   }
 
   getAllEmployees(){

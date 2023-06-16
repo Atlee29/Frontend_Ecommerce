@@ -19,43 +19,59 @@ export class LoginComponent {
 
   ngOnInit(){
     this.loginForm = this.formBuilder.group({
-      userName : [],
-      password : []
+      userName : [''],
+      password : ['']
     })
-   this.getUserDetails();
+   
   }
 
   getUserDetails(){
     this.employeeService.getUserDetails(this.loginForm.controls['userName'].value
     ,this.loginForm.controls['password'].value)
     .subscribe((users:UserDetails)=>{
-    this.userDetails=users;
+      console.log(users); 
+      if(this.loginForm.controls['userName'].value==users.userName
+      && this.loginForm.controls['password'].value==users.password
+      && users.userType=='admin'){
+           
+        sessionStorage.setItem('userType',users.userType);
+        alert('done'+users.userType)
+        this.router.navigateByUrl('/dash');
+        } 
+        else if(this.loginForm.controls['userName'].value==users.userName
+        && this.loginForm.controls['password'].value==users.password
+        && this.userDetails.userType=='customer')
+        {
+          console.log();
+          
+          sessionStorage.setItem('userType',users.userType)
+          this.router.navigateByUrl('');
+        }
     })
-  }
 
-  onLogin(){
-  
-      if(this.loginForm.controls['userName'].value==this.userDetails.userName 
-      && this.loginForm.controls['password'].value==this.userDetails.password){
-             console.log(this.userDetails);
-              sessionStorage.setItem('userType',this.userDetails.userType)
-              this.router.navigateByUrl('');
-      }
-      else if(this.loginForm.controls['userName'].value==this.userDetails.userName
-      && this.loginForm.controls['password'].value==this.userDetails.password
-      && this.loginForm.controls['userType'].value==this.userDetails.userType)
-      {
-        console.log();
-        
-        sessionStorage.setItem('userType',this.userDetails.userType)
-        this.router.navigateByUrl('');
-      }
-   
-      
-    }
-  
+  }
 
   registerData(){
     this.router.navigateByUrl('dash/register');
   }
+
+  // onLogin(){
+  //   console.log(this.loginForm.value);
+  //     if(true){
+  //             sessionStorage.setItem('userType',this.userDetails.userType);
+  //             alert('done'+this.userDetails.userType)
+  //             this.router.navigateByUrl('register');
+  //     }
+  //     else if(this.loginForm.controls['userName'].value==this.userDetails.userName
+  //     && this.loginForm.controls['password'].value==this.userDetails.password
+  //     && this.userDetails.userType=='customer')
+  //     {
+  //       console.log();
+  //       sessionStorage.setItem('userType',this.userDetails.userType)
+  //       this.router.navigateByUrl('');
+  //     }
+  //   }
+  
+
+  
 }

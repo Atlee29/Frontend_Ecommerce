@@ -23,7 +23,7 @@
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
   
-                  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                  <form [formGroup]="loginForm" (ngSubmit)="getUserDetails()">
   
                     <!-- <div class="d-flex align-items-center mb-3 pb-1">
                       <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
@@ -33,7 +33,7 @@
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
   
                     <div class="form-outline mb-4">
-                      <input type="text" id="form2Example17" formControlName="userName" class="form-control form-control-lg" />
+                      <input type="text" id="form2Example17" formControlName="userName"name="userName" class="form-control form-control-lg" />
                       <label class="form-label" for="form2Example17">User Name</label>
                     </div>
   
@@ -43,7 +43,7 @@
                     </div>
   
                     <div class="pt-1 mb-4">
-                      <button type="submit"  class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                      <button type="submit"  class="btn btn-dark btn-lg btn-block">Login</button>
                     </div>
   
                     <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
