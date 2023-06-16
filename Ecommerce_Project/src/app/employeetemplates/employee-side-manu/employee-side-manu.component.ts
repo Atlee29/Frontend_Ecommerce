@@ -11,7 +11,10 @@ export class EmployeeSideManuComponent {
  employeeDashboardroles:EmployeeDashboardSideManuRoles[];
 
  ngOnInit(){
-  this.userType=sessionStorage
+  this.userType=sessionStorage.getItem('userType');
+  this.employeeDashboardroles=EmployeeDashboardSideManuRoles.sidemanuOptionsForEmployees;
+  console.log(this.employeeDashboardroles);
+  
  }
 
 

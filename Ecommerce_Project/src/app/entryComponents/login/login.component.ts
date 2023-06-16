@@ -26,17 +26,18 @@ export class LoginComponent {
   }
 
   getUserDetails(){
+   // this.router.navigateByUrl('/empdash/admin');
     this.employeeService.getUserDetails(this.loginForm.controls['userName'].value
     ,this.loginForm.controls['password'].value)
     .subscribe((users:UserDetails)=>{
       console.log(users); 
       if(this.loginForm.controls['userName'].value==users.userName
       && this.loginForm.controls['password'].value==users.password
-      && users.userType=='admin'){
+      && users.userType=='admin' ){
            
         sessionStorage.setItem('userType',users.userType);
         alert('done'+users.userType)
-        this.router.navigateByUrl('/dash');
+        this.router.navigateByUrl('/empdash/'+users.userType);
         } 
         else if(this.loginForm.controls['userName'].value==users.userName
         && this.loginForm.controls['password'].value==users.password
