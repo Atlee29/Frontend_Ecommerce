@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './entryComponents/home/home.component';
 import { LoginComponent } from './entryComponents/login/login.component';
 import { DashboardComponent } from './templateComponents/dashboard/dashboard.component';
-import { SideManuComponent } from './templateComponents/side-manu/side-manu.component';
 import { HeaderComponent } from './templateComponents/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import {HttpClientModule} from '@angular/common/http'
+import { RouterModule } from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
+import { AboutusComponent } from './entryComponents/aboutus/aboutus.component';
+import { ContactsComponent } from './entryComponents/contacts/contacts.component';
+import { ReviewsComponent } from './entryComponents/reviews/reviews.component';
+import { SidemenuComponent } from './templateComponents/side-menu/sidemenu.component';
+import { RegisterComponent } from './entryComponents/register/register.component';
 
 @NgModule({
   declarations: [
@@ -18,15 +22,20 @@ import {HttpClientModule} from '@angular/common/http'
     HomeComponent,
     LoginComponent,
     DashboardComponent,
-    SideManuComponent,
-    HeaderComponent
+    SidemenuComponent,
+    HeaderComponent,
+    AboutusComponent,
+    ContactsComponent,
+    ReviewsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
