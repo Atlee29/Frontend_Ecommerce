@@ -33,7 +33,7 @@ export class LoginComponent {
       console.log(users); 
       if(this.loginForm.controls['userName'].value==users.userName
       && this.loginForm.controls['password'].value==users.password
-      && users.userType=='admin' ){
+      && users.userType=='admin'||users.userType=='inventory' ){
            
         sessionStorage.setItem('userType',users.userType);
         alert('done'+users.userType)
@@ -41,12 +41,12 @@ export class LoginComponent {
         } 
         else if(this.loginForm.controls['userName'].value==users.userName
         && this.loginForm.controls['password'].value==users.password
-        && this.userDetails.userType=='customer')
+        && users.userType=='customer')
         {
           console.log();
           
           sessionStorage.setItem('userType',users.userType)
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('/custdash/customer');
         }
     })
 

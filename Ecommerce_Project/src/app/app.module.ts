@@ -20,6 +20,8 @@ import { Router } from '@angular/router';
 import { EmployeeDashboardComponent } from './employeetemplates/employee-dashboard/employee-dashboard.component';
 import { EmployeeHeaderComponent } from './employeetemplates/employee-header/employee-header.component';
 import { EmployeeSideManuComponent } from './employeetemplates/employee-side-manu/employee-side-manu.component';
+import { CustomerDashboardComponent } from './customerTemplates/customer-dashboard/customer-dashboard.component';
+import { CustomerHeaderComponent } from './customerTemplates/customer-header/customer-header.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { EmployeeSideManuComponent } from './employeetemplates/employee-side-man
     EmployeeDashboardComponent,
     EmployeeHeaderComponent,
     EmployeeSideManuComponent,
+    CustomerDashboardComponent,
+    CustomerHeaderComponent,
     
 
 

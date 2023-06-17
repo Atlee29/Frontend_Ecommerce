@@ -7,6 +7,7 @@ import { ReviewsComponent } from './entryComponents/reviews/reviews.component';
 import { DashboardComponent } from './templateComponents/dashboard/dashboard.component';
 import { RegisterComponent } from './entryComponents/register/register.component';
 import { EmployeeDashboardComponent } from './employeetemplates/employee-dashboard/employee-dashboard.component';
+import { CustomerDashboardComponent } from './customerTemplates/customer-dashboard/customer-dashboard.component';
 
 const routes: Routes = [
   {
@@ -40,7 +41,12 @@ const routes: Routes = [
       {path : 'admin',loadChildren:()=>import('src/app/modules/admin/admin.module').then(m=>m.AdminModule)},
       {path : 'inventory',loadChildren:()=>import('src/app/modules/inventory/inventory.module').then(m=>m.InventoryModule)},
       {path : 'customer',loadChildren:()=>import('src/app/modules/customer/customer.module').then(m=>m.CustomerModule)},
-
+    ]
+  },
+  {
+    path:'custdash' , component:CustomerDashboardComponent,
+    children:[
+      {path : 'customer',loadChildren:()=>import('src/app/modules/customer/customer.module').then(m=>m.CustomerModule)},
     ]
   }
 ];
