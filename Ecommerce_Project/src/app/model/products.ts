@@ -9,5 +9,5 @@ export class Products {
     productRating:number;
     productStatus:string;
     productDetails:ProductDetails;
-    availableDealers:Dealer[];
+    availableDealers:Dealer[]; 
 }
