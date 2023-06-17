@@ -9,5 +9,4 @@ export class Address {
     landmark:string;
     pincode:number;
     state:string;
-    
 }
