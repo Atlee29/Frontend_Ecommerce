@@ -6,6 +6,8 @@ import { AddEmployeesComponent } from './add-employees/add-employees.component';
 import { ViewEmployeesComponent } from './view-employees/view-employees.component';
 import { AddDealerComponent } from './add-dealer/add-dealer.component';
 import { ViewDealerComponent } from './view-dealer/view-dealer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ViewDealerComponent } from './view-dealer/view-dealer.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class AdminModule { }

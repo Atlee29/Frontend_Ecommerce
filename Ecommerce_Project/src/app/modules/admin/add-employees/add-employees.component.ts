@@ -10,7 +10,7 @@ import { EmployeeService } from 'src/app/service/employee.service';
 export class AddEmployeesComponent {
   employeeForm:FormGroup;
   constructor(private formBuilder:FormBuilder
-    ,private employeeSErvice:EmployeeService){}
+    ,private employeeService:EmployeeService){}
 
   ngOnInit(){
     this.employeeForm=this.formBuilder.group({
@@ -32,5 +32,12 @@ export class AddEmployeesComponent {
         userType:[''] 
       })
     })
+  }
+
+  addEmployee(){
+
+    console.log(this.employeeForm.value);
+    this.employeeService.createEmployee(this.employeeForm.value).subscribe();
+    
   }
 }
