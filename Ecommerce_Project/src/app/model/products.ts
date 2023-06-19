@@ -8,6 +8,7 @@ export class Products {
     productAvailableCount:number;
     productRating:number;
     productStatus:string;
+    productPhoto:any;
     productDetails:ProductDetails;
     availableDealers:Dealer[]; 
 }

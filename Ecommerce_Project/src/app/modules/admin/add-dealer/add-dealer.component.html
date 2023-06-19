@@ -1,1 +1,68 @@
-<p>add-dealer works!</p>
+<form [formGroup]="dealerForm" (ngSubmit)="addDealer()" class="form-inline">
+    <div class="form-group">
+        <label for="name">DealerName:</label>
+        <input type="text" formControlName="dealerName" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="mobilenumber">MobileNumber:</label>
+        <input type="number" formControlName="dealerMobileNumber" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" formControlName="dealerEmail" class="form-control" id="email">
+      </div>
+
+      <div formGroupName="dealerAddress">
+      <div class="form-group">
+        <label for="houseNumber">HouseNumber:</label>
+        <input type="number" formControlName="houseNumber" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="street">Street:</label>
+        <input type="text" formControlName="street" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="area">Area:</label>
+        <input type="text" formControlName="area" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" formControlName="city" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="landmark">Landmark:</label>
+        <input type="text" formControlName="landmark" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="pincode">Pincode:</label>
+        <input type="number" formControlName="pincode" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="state">State:</label>
+        <input type="text" formControlName="state" class="form-control" id="email">
+      </div>
+    </div>
+    <div formGroupName="dealerBankDetails">
+        <div class="form-group">
+            <label for="uname">Account Number:</label>
+            <input type="number" formControlName="bankAccountNumber" class="form-control" id="pwd">
+          </div>
+    <div class="form-group">
+      <label for="pwd">Bank Name:</label>
+      <input type="text" formControlName="bankName" class="form-control" id="pwd">
+    </div>
+    <div class="form-group">
+        <label for="utype">Branch Name:</label>
+        <input type="text" formControlName="branchName" class="form-control" id="pwd">
+      </div>
+      <div class="form-group">
+        <label for="utype">IFSC Number:</label>
+        <input type="number" formControlName="ifscNumber" class="form-control" id="pwd">
+      </div>
+      <div class="form-group">
+        <label for="utype">Card Number:</label>
+        <input type="number" formControlName="cardNumber" class="form-control" id="pwd">
+      </div>
+</div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>

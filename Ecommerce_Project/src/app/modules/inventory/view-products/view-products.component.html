@@ -1,1 +1,21 @@
-<p>view-products works!</p>
+<table class="table table-dark" border="2">
+    <thead>
+      <tr>
+        <th scope="col">product Id</th>
+        <th scope="col">Productcatagory</th>
+        <th scope="col">product Name</th>
+        <th scope="col"></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productList">
+        <td>{{ product.productId }}</td>
+        <td>{{ product.productCategory}}</td>
+        <td>{{ product.productDetails.productName}}</td>
+        <td><button (click)="navigateForUpdate(product.productId)">Update</button></td>
+  
+      </tr>
+    </tbody>
+  </table>
+  

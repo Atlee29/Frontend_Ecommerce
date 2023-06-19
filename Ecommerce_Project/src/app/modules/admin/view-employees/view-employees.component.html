@@ -1,1 +1,33 @@
-<p>view-employees works!</p>
+<table class="table table-dark" border="2">
+    <thead>
+      <tr>
+        <th scope="col">EmployeeName</th>
+        <th scope="col">Mobile Number</th>
+        <th scope="col">Email</th>
+        <th scope="col">House Number</th>
+        <th scope="col">Street</th>
+        <th scope="col">Area</th>
+        <th scope="col">City</th>
+        <th scope="col">Landmark</th>
+        <th scope="col">Pincode</th>
+        <th scope="col">State</th>
+        <th scope="col">User Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employeeList">
+        <td>{{ employee.employeeName }}</td>
+        <td>{{ employee.employeeMobileNumber }}</td>
+        <td>{{ employee.employeeEmail }}</td>
+        <td>{{ employee.employeeAddress.houseNumber }}</td>
+        <td>{{ employee.employeeAddress.street }}</td>
+        <td>{{ employee.employeeAddress.area }}</td>
+        <td>{{ employee.employeeAddress.city }}</td>
+        <td>{{ employee.employeeAddress.landmark }}</td>
+        <td>{{ employee.employeeAddress.pincode }}</td>
+        <td>{{ employee.employeeAddress.state }}</td>
+        <td>{{ employee.employeeUserDetails.userType }}</td>       
+      </tr>
+    </tbody>
+  </table>
+  
