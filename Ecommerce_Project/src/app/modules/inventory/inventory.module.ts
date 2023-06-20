@@ -6,7 +6,7 @@ import { AddProductsComponent } from './add-products/add-products.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     InventoryRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ]
 })
 export class InventoryModule { }

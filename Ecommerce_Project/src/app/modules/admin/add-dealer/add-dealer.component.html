@@ -1,4 +1,4 @@
-<form [formGroup]="dealerForm" (ngSubmit)="addDealer()" class="form-inline">
+<!-- <form [formGroup]="dealerForm" (ngSubmit)="addDealer()" class="form-inline">
     <div class="form-group">
         <label for="name">DealerName:</label>
         <input type="text" formControlName="dealerName" class="form-control" id="email">
@@ -65,4 +65,197 @@
       </div>
 </div>
     <button type="submit" class="btn btn-default">Submit</button>
+  </form> 
+
+  <div class="row"> 
+    <div class="col-md-12 col-md-offset-3">
+        <form [formGroup]="dealerForm" id="msform">
+          
+            <ul id="progressbar">
+                <li [ngClass]="step>=1 ? 'active ' : 'inactive'">Personal Details</li>
+                <li [ngClass]="step>=2 ? 'active' : 'inactive'">Social Profiles</li>
+                <li [ngClass]="step==3 ? 'active' : 'inactive'">Account Setup</li>
+            </ul>
+            
+
+            <fieldset  *ngIf="step == 1" >
+                <h2 class="fs-title">Personal Details</h2>
+                <input type="text" formControlName="name"  [ngClass]="{ 'is-invalid': personal_step && personal.name.errors }" placeholder="Full Name"/>
+                <div *ngIf="personal_step && personalDetails.controls.name.errors">
+                    <div *ngIf="personal.name.errors?.required">Name is required</div>
+                </div>
+                <input type="text" formControlName="email" name="email" placeholder="Email"/>
+                <div *ngIf="personal_step && personalDetails.controls.email.errors">
+                  <div *ngIf="personal.email.errors?.required">Email is required</div>
+               </div>
+                <input type="text" formControlName="phone" name="phone" placeholder="Phone"/>
+                <div *ngIf="personal_step && personalDetails.controls.phone.errors">
+                  <div *ngIf="personal.phone.errors?.required">Phone is required</div>
+              </div>
+                <input (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+        </form>
+         <form [formGroup]="dealerForm" id="msform">
+            <fieldset *ngIf="step == 2" >
+                <h2 class="fs-title">Address Details</h2>
+                <input type="text" formControlName="city"  placeholder="City"/>
+                <div *ngIf="address_step && addressDetails.controls.city.errors">
+                    <div *ngIf="address.city.errors?.required">City is required</div>
+                </div>
+                <textarea rows="5" cols="5" formControlName="address"  placeholder="address"></textarea>
+                <div *ngIf="address_step && addressDetails.controls.address.errors">
+                    <div *ngIf="address.address.errors?.required">Address is required</div>
+                </div>
+                <input type="text" formControlName="pincode"  placeholder="Pincode"/>
+                <div *ngIf="address_step && addressDetails.controls.pincode.errors">
+                    <div *ngIf="address.pincode.errors?.required">Pincode is required</div>
+                </div>
+                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input  (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+        </form>
+         <form [formGroup]="dealerForm" id="msform">
+            <fieldset *ngIf="step == 3">
+                <h2 class="fs-title">Educational Details</h2>
+                <input type="text" formControlName="highest_qualification" placeholder="Highest Qualification"/>
+                <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                    <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                </div>
+                <input type="text" formControlName="university"  placeholder="University"/>
+                <div *ngIf="education_step && educationalDetails.controls.university.errors">
+                    <div *ngIf="education.university.errors?.required">University is required</div>
+                </div>
+                <input type="text" formControlName="total_marks" placeholder="Total Marks"/>
+                <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                    <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                </div>
+                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input (click)="submit()"type="submit" name="submit" class="submit action-button" value="Submit"/>
+            </fieldset>
+        </form>
+
+    </div>
+</div> -->
+
+<div class="step-form-container">
+  <form [formGroup]="dealerForm" (ngSubmit)="addDealer()">
+    <div *ngIf="currentStep === 1">
+      <h2>Dealer Information</h2>
+      <div class="form-group">
+        <label for="dealerName">Dealer Name</label>
+        <input type="text" id="dealerName" formControlName="dealerName" class="form-control">
+        <div *ngIf="f.dealerName.touched && f.dealerName.invalid" class="error-message">
+          Dealer Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dealerMobileNumber">Mobile Number</label>
+        <input type="text" id="dealerMobileNumber" formControlName="dealerMobileNumber" class="form-control">
+        <div *ngIf="f.dealerMobileNumber.touched && f.dealerMobileNumber.invalid" class="error-message">
+          Mobile Number is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dealerEmail">Email</label>
+        <input type="email" id="dealerEmail" formControlName="dealerEmail" class="form-control">
+        <div *ngIf="f.dealerEmail.touched && f.dealerEmail.invalid" class="error-message">
+          Email is required.
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="next()">Next</button>
+    </div>
+
+    <div *ngIf="currentStep === 2">
+      <h2>Dealer Address</h2>
+      <div formGroupName="dealerAddress">
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input type="text" id="street" formControlName="street" class="form-control">
+        <div *ngIf="f.dealerAddress.get('street').touched && f.dealerAddress.get('street').invalid" class="error-message">
+          Street is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="area">Area</label>
+        <input type="text" id="area" formControlName="area" class="form-control">
+        <div *ngIf="f.dealerAddress.get('area').touched && f.dealerAddress.get('area').invalid" class="error-message">
+          Area is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" formControlName="city" class="form-control">
+        <div *ngIf="f.dealerAddress.get('city').touched && f.dealerAddress.get('city').invalid" class="error-message">
+          City is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="landmark">Landmark</label>
+        <input type="text" id="landmark" formControlName="landmark" class="form-control">
+        <div *ngIf="f.dealerAddress.get('landmark').touched && f.dealerAddress.get('landmark').invalid" class="error-message">
+          Landmark is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pincode">Pincode</label>
+        <input type="text" id="pincode" formControlName="pincode" class="form-control">
+        <div *ngIf="f.dealerAddress.get('pincode').touched && f.dealerAddress.get('pincode').invalid" class="error-message">
+          Pincode is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="state">State</label>
+        <input type="text" id="state" formControlName="state" class="form-control">
+        <div *ngIf="f.dealerAddress.get('state').touched && f.dealerAddress.get('state').invalid" class="error-message">
+          State is required.
+        </div>
+      </div>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="previous()">Previous</button>
+      <button type="button" class="btn btn-primary" (click)="next()">Next</button>
+    </div>
+
+    <div *ngIf="currentStep === 3">
+      <h2>Dealer Bank Details</h2>
+      <div formGroupName="dealerBankDetails">
+      <div class="form-group">
+        <label for="bankAccountNumber">Bank Account Number</label>
+        <input type="text" id="bankAccountNumber" formControlName="bankAccountNumber" class="form-control">
+        <div *ngIf="f.dealerBankDetails.get('bankAccountNumber').touched && f.dealerBankDetails.get('bankAccountNumber').invalid" class="error-message">
+          Bank Account Number is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="bankName">Bank Name</label>
+        <input type="text" id="bankName" formControlName="bankName" class="form-control">
+        <div *ngIf="f.dealerBankDetails.get('bankName').touched && f.dealerBankDetails.get('bankName').invalid" class="error-message">
+          Bank Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="branchName">Branch Name</label>
+        <input type="text" id="branchName" formControlName="branchName" class="form-control">
+        <div *ngIf="f.dealerBankDetails.get('branchName').touched && f.dealerBankDetails.get('branchName').invalid" class="error-message">
+          Branch Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ifscNumber">IFSC Number</label>
+        <input type="text" id="ifscNumber" formControlName="ifscNumber" class="form-control">
+        <div *ngIf="f.dealerBankDetails.get('ifscNumber').touched && f.dealerBankDetails.get('ifscNumber').invalid" class="error-message">
+          IFSC Number is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" formControlName="cardNumber" class="form-control">
+        <div *ngIf="f.dealerBankDetails.get('cardNumber').touched && f.dealerBankDetails.get('cardNumber').invalid" class="error-message">
+          Card Number is required.
+        </div>
+      </div>
+    </div>
+      <button type="button" class="btn btn-primary" (click)="previous()">Previous</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
   </form>
+</div>

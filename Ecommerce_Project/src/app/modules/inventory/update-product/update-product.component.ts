@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { Dealer } from 'src/app/model/dealer';
+import { Products } from 'src/app/model/products';
 import { ProductsService } from 'src/app/service/products.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class UpdateProductComponent {
   dealerList:Dealer[];
   productPhoto:any;
   idOfProduct:any;
+  product:any;
   constructor(private formbulider: FormBuilder
     ,private productService:ProductsService
     ,private activatedRoute:ActivatedRoute
@@ -29,6 +31,7 @@ export class UpdateProductComponent {
       productRating:[],
       productStatus:[''],
       productDetails:this.formbulider.group({
+        
         productName:[''],
         manufacturerName:[''],
         modelNumber:[],
@@ -37,37 +40,42 @@ export class UpdateProductComponent {
       availableDealers:this.formbulider.array([])
        
     })
-    this.createProductFeature();
+    //this.createProductFeature();
     this.createDealer();
     this.getDealers();
+   
     this.assignData();
+    
   }
 
   assignData(){
-    // let product:any=this.location.getState();
-
     this.idOfProduct=this.activatedRoute.snapshot.paramMap.get('productId');
     console.log(this.idOfProduct);
-    
-
-
-    // console.log(product.productCategory);
-    
-    // this.updateForm.get('productCategory').setValue(product.productCategory);
-    // this.updateForm.get('productPrice').setValue(product.productPrice);
-    // this.updateForm.get('productAvailableCount').setValue(product.productAvailableCount);
-    // this.updateForm.get('productRating').setValue(product.productRating);
-    // this.updateForm.get('productStatus').setValue(product.productStatus);
-    // this.updateForm.get('productDetails.productName').setValue(product.productDetails.productName);
-    // this.updateForm.get('productDetails.manufacturerName').setValue(product.productDetails.manufacturerName);
-    // this.updateForm.get('productDetails.productfeatures.productFeatureName').setValue(product.productDetails.productfeatures.productFeatureName);
-    // this.updateForm.get('productDetails.productfeatures.productFeatureValue').setValue(product.productDetails.productfeatures.productFeatureValue);
-
-
+    this.productService.getProductById(this.idOfProduct).subscribe(
+      (product:Products)=>{
+        for(let feature of product.productDetails.productfeatures)
+        {
+          this.createProductFeature();
+        }
+        console.log(product);
+        this.updateForm.get('productCategory').setValue(product.productCategory);
+        this.updateForm.get('productPrice').setValue(product.productPrice);
+        this.updateForm.get('productAvailableCount').setValue(product.productAvailableCount);
+        this.updateForm.get('productRating').setValue(product.productRating);
+        this.updateForm.get('productStatus').setValue(product.productStatus);
+        this.updateForm.get('productDetails.productName').setValue(product.productDetails.productName);
+        this.updateForm.get('productDetails.manufacturerName').setValue(product.productDetails.manufacturerName);
+        this.updateForm.get('productDetails.modelNumber').setValue(product.productDetails.modelNumber);
+        this.updateForm.get('productDetails.productfeatures').setValue(product.productDetails.productfeatures);
+         //this.updateForm.get('productPhoto').setValue(product.productPhoto);
+        //this.updateForm.get('productDetails.productfeatures.productFeatureValue').setValue(product.productDetails.productfeatures.productFeatureValue);
+        
+      });
   }
 
   createProductFeature(){
   let newProductFeature:FormGroup=    this.formbulider.group({
+    productFeatureId:[],
       productFeatureName:[''],
       productFeatureValue:['']
     })
@@ -105,6 +113,12 @@ getDealers(){
   ) 
 }
 
+removeProductFeature(index:number){
+  // const productFeaturesFormArray = this.updateForm.get('productFeatures') as FormArray;
+  // productFeaturesFormArray.removeAt(index);
+  this.productfeatures.removeAt(index);
+}
+
 eventBind(event:any){
   console.log(event.target.value);
 
@@ -132,9 +146,9 @@ saveData(){
   var formData=new FormData();
   formData.append("productPhoto",this.productPhoto);
   formData.append("product",productData);
-
+  console.log(formData);
   
-  this.productService.saveproduct(formData).subscribe();
+  this.productService.updateProduct(formData,this.idOfProduct).subscribe();
   
 }
 

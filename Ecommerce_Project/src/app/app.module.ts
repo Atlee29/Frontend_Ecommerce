@@ -22,7 +22,8 @@ import { EmployeeHeaderComponent } from './employeetemplates/employee-header/emp
 import { EmployeeSideManuComponent } from './employeetemplates/employee-side-manu/employee-side-manu.component';
 import { CustomerDashboardComponent } from './customerTemplates/customer-dashboard/customer-dashboard.component';
 import { CustomerHeaderComponent } from './customerTemplates/customer-header/customer-header.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,9 @@ import { CustomerHeaderComponent } from './customerTemplates/customer-header/cus
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

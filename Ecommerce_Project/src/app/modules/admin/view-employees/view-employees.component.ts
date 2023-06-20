@@ -9,6 +9,7 @@ import { EmployeeService } from 'src/app/service/employee.service';
 })
 export class ViewEmployeesComponent {
   employeeList: Employee[];
+  currentStep:number=1;
   constructor(private employeeService: EmployeeService){}
 
   ngOnInit(){
@@ -18,6 +19,14 @@ export class ViewEmployeesComponent {
       
     })
     
+    
+  }
+  next(){
+      this.currentStep++;
+  }
+ 
+  privious(){
+    this.currentStep--;
   }
   
 }

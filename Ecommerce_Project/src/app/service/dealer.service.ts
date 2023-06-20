@@ -11,4 +11,8 @@ export class DealerService {
   saveDealer(dealer:Dealer){
     return this.httpClient.post('http://localhost:8989/admin/adddealer',dealer)
   }
+
+  getDealers(){
+    return this.httpClient.get('http://localhost:8989/admin/getAllDealer')
+  }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserDetails } from 'src/app/model/user-details';
 import { EmployeeService } from 'src/app/service/employee.service';
@@ -19,13 +19,16 @@ export class LoginComponent {
 
   ngOnInit(){
     this.loginForm = this.formBuilder.group({
-      userName : [''],
-      password : ['']
+      userName : ['', Validators.required],
+      password : ['', Validators.required]
     })
    
   }
+  get login() { return this.loginForm.controls; }
+  
 
   getUserDetails(){
+    if((this.loginForm.value)){
    // this.router.navigateByUrl('/empdash/admin');
     this.employeeService.getUserDetails(this.loginForm.controls['userName'].value
     ,this.loginForm.controls['password'].value)
@@ -49,8 +52,12 @@ export class LoginComponent {
           this.router.navigateByUrl('/custdash/customer');
         }
     })
+  
 
   }
+}
+
+
 
   registerData(){
     this.router.navigateByUrl('dash/register');

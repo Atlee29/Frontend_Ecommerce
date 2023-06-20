@@ -34,10 +34,14 @@
         <label for="modelNumber">Model Number:</label>
         <input type="text" id="modelNumber" formControlName="modelNumber">
       </div>
-  
+
       <div formArrayName="productfeatures">
         <div *ngFor="let feature of productfeatures.controls , let i= index" [formGroupName]="i">
-    
+         
+          <div>
+            <label for="productFeatureId">Feature Id:</label>
+            <input type="number" id="productFeatureName" formControlName="productFeatureId">
+          </div>
           <div>
             <label for="productFeatureName">Feature Name:</label>
             <input type="text" id="productFeatureName" formControlName="productFeatureName">
@@ -46,16 +50,21 @@
             <label for="productFeatureValue">Feature Value:</label>
             <input type="text" id="productFeatureValue" formControlName="productFeatureValue">
           </div> 
+          <button type="button" (click)="removeProductFeature(i)">Remove</button>
+
         </div>
       </div>
     </div>
 
     <div formArrayName="availableDealers">
       <div>
-        <label>Dealer:</label>
-        <select (change)="eventBind($event)">
+        <label>Select Dealers</label>
+        <select (change)="eventBind($event)" multiple>
           <option value="">Select Dealer</option>
-          <option *ngFor="let dealer of dealerList" [value]="dealer.dealerId">{{dealer.dealerName}}</option>
+          <option *ngFor="let dealer of dealerList" [value]="dealer.dealerId">
+
+             {{dealer.dealerName}}
+          </option>
         </select>
       </div>
       <div>
