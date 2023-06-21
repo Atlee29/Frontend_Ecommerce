@@ -44,6 +44,9 @@ export class AddEmployeesComponent {
     this.currentStep--;
   }
   
+  showErrorMessage(){
+    
+  }
 
   addEmployee(){
     if(this.employeeForm.valid){

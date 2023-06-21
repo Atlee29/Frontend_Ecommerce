@@ -1,4 +1,5 @@
 <form [formGroup]="updateForm" (ngSubmit)="saveData()">
+  
     <div>
       <label for="productCategory">Product Category:</label>
       <input type="text" id="productCategory" formControlName="productCategory">
@@ -23,6 +24,10 @@
   
     <div formGroupName="productDetails">
       <div>
+        <div>
+          <label for="productCategory">ProductDetails Id:</label>
+          <input type="text" id="productDetailsId" formControlName="productDetailsId">
+        </div>
         <label for="productName">Product Name:</label>
         <input type="text" id="productName" formControlName="productName">
       </div>

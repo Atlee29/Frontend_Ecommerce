@@ -31,7 +31,7 @@ export class UpdateProductComponent {
       productRating:[],
       productStatus:[''],
       productDetails:this.formbulider.group({
-        
+        productDetailsId:[],
         productName:[''],
         manufacturerName:[''],
         modelNumber:[],
@@ -58,16 +58,18 @@ export class UpdateProductComponent {
           this.createProductFeature();
         }
         console.log(product);
+        
         this.updateForm.get('productCategory').setValue(product.productCategory);
         this.updateForm.get('productPrice').setValue(product.productPrice);
         this.updateForm.get('productAvailableCount').setValue(product.productAvailableCount);
         this.updateForm.get('productRating').setValue(product.productRating);
         this.updateForm.get('productStatus').setValue(product.productStatus);
+        this.updateForm.get('productDetails.productDetailsId').setValue(product.productDetails.productDetailsId);
         this.updateForm.get('productDetails.productName').setValue(product.productDetails.productName);
         this.updateForm.get('productDetails.manufacturerName').setValue(product.productDetails.manufacturerName);
         this.updateForm.get('productDetails.modelNumber').setValue(product.productDetails.modelNumber);
         this.updateForm.get('productDetails.productfeatures').setValue(product.productDetails.productfeatures);
-         //this.updateForm.get('productPhoto').setValue(product.productPhoto);
+        //this.updateForm.get('productPhoto').setValue(product.productPhoto);
         //this.updateForm.get('productDetails.productfeatures.productFeatureValue').setValue(product.productDetails.productfeatures.productFeatureValue);
         
       });
