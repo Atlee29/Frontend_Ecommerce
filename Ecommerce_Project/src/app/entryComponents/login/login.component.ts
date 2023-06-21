@@ -16,11 +16,12 @@ export class LoginComponent {
 
   loginForm : FormGroup;
   userDetails:UserDetails;
+  showErrorMessage:boolean=false;
 
   ngOnInit(){
     this.loginForm = this.formBuilder.group({
       userName : ['', Validators.required],
-      password : ['', Validators.required]
+      password : ['', [Validators.required, Validators.minLength(6)]]
     })
    
   }
@@ -28,7 +29,9 @@ export class LoginComponent {
   
 
   getUserDetails(){
-    if((this.loginForm.value)){
+    if((this.loginForm.invalid)){
+      this.showErrorMessage = true;
+      return;
    // this.router.navigateByUrl('/empdash/admin');
     this.employeeService.getUserDetails(this.loginForm.controls['userName'].value
     ,this.loginForm.controls['password'].value)
@@ -55,6 +58,13 @@ export class LoginComponent {
   
 
   }
+  }
+get userName(){
+  return this.loginForm.get('userName')
+}
+
+get password(){
+  return this.loginForm.get('password')
 }
 
 
