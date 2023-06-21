@@ -168,6 +168,13 @@
     <div *ngIf="currentStep === 2">
       <h2>Dealer Address</h2>
       <div formGroupName="dealerAddress">
+        <div class="form-group">
+          <label for="houseNumber">House Number</label>
+          <input type="number" id="houseNumber" formControlName="houseNumber" class="form-control">
+          <div *ngIf="f.dealerAddress.get('houseNumber').touched && f.dealerAddress.get('houseNumber').invalid" class="error-message">
+            Street is required.
+          </div>
+        </div>
       <div class="form-group">
         <label for="street">Street</label>
         <input type="text" id="street" formControlName="street" class="form-control">
@@ -198,7 +205,7 @@
       </div>
       <div class="form-group">
         <label for="pincode">Pincode</label>
-        <input type="text" id="pincode" formControlName="pincode" class="form-control">
+        <input type="number" id="pincode" formControlName="pincode" class="form-control">
         <div *ngIf="f.dealerAddress.get('pincode').touched && f.dealerAddress.get('pincode').invalid" class="error-message">
           Pincode is required.
         </div>
@@ -220,7 +227,7 @@
       <div formGroupName="dealerBankDetails">
       <div class="form-group">
         <label for="bankAccountNumber">Bank Account Number</label>
-        <input type="text" id="bankAccountNumber" formControlName="bankAccountNumber" class="form-control">
+        <input type="number" id="bankAccountNumber" formControlName="bankAccountNumber" class="form-control">
         <div *ngIf="f.dealerBankDetails.get('bankAccountNumber').touched && f.dealerBankDetails.get('bankAccountNumber').invalid" class="error-message">
           Bank Account Number is required.
         </div>
@@ -248,7 +255,7 @@
       </div>
       <div class="form-group">
         <label for="cardNumber">Card Number</label>
-        <input type="text" id="cardNumber" formControlName="cardNumber" class="form-control">
+        <input type="number" id="cardNumber" formControlName="cardNumber" class="form-control">
         <div *ngIf="f.dealerBankDetails.get('cardNumber').touched && f.dealerBankDetails.get('cardNumber').invalid" class="error-message">
           Card Number is required.
         </div>

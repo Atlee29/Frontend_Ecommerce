@@ -38,7 +38,7 @@ export class AddProductsComponent implements OnInit{
 
   createProductFeature(){
 
-  let newProductFeature:FormGroup=    this.formbulider.group({
+  let newProductFeature:FormGroup=this.formbulider.group({
       productFeatureName:[''],
       productFeatureValue:['']
     })
@@ -106,7 +106,7 @@ saveData(){
 
   
   this.productService.saveproduct(formData).subscribe();
-  
+   
 }
 
 }
