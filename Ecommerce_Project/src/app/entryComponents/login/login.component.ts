@@ -49,7 +49,7 @@ export class LoginComponent {
           console.log();
           
           sessionStorage.setItem('userType',users.userType)
-          this.router.navigateByUrl('/custdash/customer');
+          this.router.navigateByUrl('/custdash/customer/viewProductsCustomer');
         }
     })
   

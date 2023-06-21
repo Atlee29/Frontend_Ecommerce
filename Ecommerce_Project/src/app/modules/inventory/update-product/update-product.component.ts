@@ -139,7 +139,7 @@ uploadPhoto(event:any){
   this.productPhoto=event.target.files[0]
   console.log(this.productPhoto);
   
-}
+} 
 saveData(){
   console.log(this.updateForm.value);
   var productData=JSON.stringify(this.updateForm.value);
