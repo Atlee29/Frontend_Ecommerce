@@ -10,6 +10,9 @@ import { CustomerService } from 'src/app/service/customer.service';
 })
 export class RegisterComponent {
 
+  step:number=1;
+
+
   registerForm:FormGroup;
   constructor(private forbBuilder:FormBuilder
     ,private customerService:CustomerService
@@ -34,4 +37,12 @@ export class RegisterComponent {
     this.customerService.saveCustomer(this.registerForm.value).subscribe();
     this.router.navigateByUrl('/dash')
   }
+
+next_step(){
+  this.step++;
+}
+pre_step(){
+  this.step--;
+}
+
 }

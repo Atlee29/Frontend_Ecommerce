@@ -24,6 +24,10 @@ import { CustomerDashboardComponent } from './customerTemplates/customer-dashboa
 import { CustomerHeaderComponent } from './customerTemplates/customer-header/customer-header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +58,9 @@ import {MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
     MatSelectModule
   ],
   providers: [],
