@@ -46,7 +46,7 @@ export class AddEmployeesComponent {
   
 
   addEmployee(){
-    if((this.employeeForm.valid)){
+    if(this.employeeForm.valid){
     console.log(this.employeeForm.value);
     this.employeeService.createEmployee(this.employeeForm.value).subscribe();
     }

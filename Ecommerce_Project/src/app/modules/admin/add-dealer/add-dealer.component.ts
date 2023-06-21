@@ -61,7 +61,7 @@ previous() {
   this.currentStep--;
 }
 addDealer(){
-  if((this.dealerForm.valid)){
+  if(this.dealerForm.valid){
   console.log(this.dealerForm.value);
   this.dealerService.saveDealer(this.dealerForm.value).subscribe();
 }
