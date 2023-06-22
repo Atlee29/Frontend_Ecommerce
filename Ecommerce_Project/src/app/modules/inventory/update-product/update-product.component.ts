@@ -21,7 +21,7 @@ export class UpdateProductComponent {
   constructor(private formbulider: FormBuilder
     ,private productService:ProductsService
     ,private activatedRoute:ActivatedRoute
-    ,private location:Location){}
+     ){}
 
   ngOnInit(){
     this.updateForm=this.formbulider.group({
