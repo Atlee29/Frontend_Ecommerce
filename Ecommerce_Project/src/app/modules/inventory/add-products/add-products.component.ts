@@ -12,6 +12,7 @@ export class AddProductsComponent implements OnInit{
   addProductForm: FormGroup;
   dealerList:Dealer[];
   productPhoto:any;
+  currentStep: number = 1;
   constructor(private formbulider: FormBuilder
     ,private productService:ProductsService){}
 
@@ -108,5 +109,10 @@ saveData(){
   this.productService.saveproduct(formData).subscribe();
    
 }
-
+next() {
+  this.currentStep++;
+}
+previous() {
+  this.currentStep--;
+}
 }

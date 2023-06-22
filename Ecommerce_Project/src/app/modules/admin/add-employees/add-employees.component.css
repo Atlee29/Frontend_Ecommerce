@@ -23,6 +23,7 @@
   
   .card-body {
     padding: 30px;
+    align-content: center;
   }
   
   h1 {
@@ -52,4 +53,12 @@
     background-color: #2196f3;
     color: white;
   }
+  .step-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin-top: 0;
+  }
+  
   
