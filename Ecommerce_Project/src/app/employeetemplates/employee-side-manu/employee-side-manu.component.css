@@ -1,0 +1,32 @@
+/* Side Menu Container */
+.side-menu-container {
+  width: 250px; /* Adjust the width as needed */
+  height: 100vh; /* Adjust the height as needed */
+  background-color: #f4f4f4; /* Set the background color */
+  padding: 20px;
+}
+
+/* Menu Title */
+.side-menu-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Menu Items */
+.side-menu-item {
+  margin-bottom: 10px;
+}
+
+.side-menu-item a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333; /* Set the link color */
+  transition: background-color 0.3s ease;
+}
+
+.side-menu-item a:hover {
+  background-color: #ddd; /* Set the background color on hover */
+  color: #000; /* Set the link color on hover */
+}

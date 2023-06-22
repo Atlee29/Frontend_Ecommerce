@@ -1,0 +1,20 @@
+.header-container {
+  background-color: #2781D5;
+  
+}
+
+.row {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  background-color: #ffffff;
+  
+}
+
+.main-content {
+  background-color: #fff;
+
+}
