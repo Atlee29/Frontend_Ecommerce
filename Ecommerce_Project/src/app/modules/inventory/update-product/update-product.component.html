@@ -135,8 +135,7 @@
               <input type="text" id="modelNumber" formControlName="modelNumber">
             </div>
           </div>
-        </div>
-      </div>
+       
       <div formArrayName="productfeatures" class="form-group">
         <div *ngFor="let feature of productfeatures.controls; let i = index" [formGroupName]="i">
           <div class="form-row">
@@ -154,12 +153,14 @@
               <label for="productFeatureValue">Feature Value:</label>
               <input type="text" id="productFeatureValue" formControlName="productFeatureValue">
             </div>
+          </div>
             <div class="form-group">
               <button type="button" (click)="removeProductFeature(i)">Remove</button>
             </div>
           </div>
         </div>
       </div>
+    </div>
       <div formArrayName="availableDealers" class="form-group">
         <div  class="form-row">
           <label>Dealer:</label>
