@@ -2,9 +2,9 @@
     display: flex;
     justify-content: space-between;
 }
-.material-icons {
+/* .material-icons {
     position: relative;
-  }
+  } */
   
   .material-icons:hover::after {
     content: attr(title);
