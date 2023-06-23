@@ -1,4 +1,27 @@
-<p>view-single-product works!</p>
-<div  *ngIf="singleProduct">
-    <img [src]="'data:image/jpeg;base64,'+singleProduct.productPhoto" height="200">
-</div>
+
+
+
+<div *ngIf="singleProduct" class="row">
+    <div class="col-6">
+      <img [src]="'data:image/jpeg;base64,' + singleProduct.productPhoto" height="400px">
+    </div>
+    <div class="col-6">
+      <h3>{{singleProduct.productDetails.manufacturerName}} {{singleProduct.productDetails.productName}} ({{singleProduct.productDetails.modelNumber}})</h3>
+      <h3>{{singleProduct.productRating}}</h3>
+      <h3 *ngFor="let feature of features">{{feature.productFeatureName}}:{{feature.productFeatureValue}}</h3>
+      <h3>&#8377;{{singleProduct.productPrice}}</h3>
+      <h3>{{singleProduct.productStatus}}</h3>
+
+      <pre>Available Offers:-
+        Bank Offer5% Cashback on Flipkart Axis Bank CardT&C
+        Special PriceGet extra ₹2000 off (price inclusive of cashback/coupon)T&C
+      </pre>
+        
+      <a href="#" class="btn">Add To Cart</a>
+      &nbsp;
+      <a routerLink="/Order" class="btn">Buy</a>
+
+
+    </div>
+  </div>
+  

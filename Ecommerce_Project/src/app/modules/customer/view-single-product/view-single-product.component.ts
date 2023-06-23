@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductFeatures } from 'src/app/model/product-features';
 import { Products } from 'src/app/model/products';
 import { ProductsService } from 'src/app/service/products.service';
 
@@ -11,6 +12,7 @@ import { ProductsService } from 'src/app/service/products.service';
 export class ViewSingleProductComponent {
   idOfProduct:any;
   singleProduct:Products;
+  features:ProductFeatures[];
   constructor(private activatedRoute:ActivatedRoute
     ,private productService:ProductsService){}
 
@@ -21,12 +23,12 @@ export class ViewSingleProductComponent {
     this.productService.getProductById(this.idOfProduct).subscribe(
       (product:Products)=>{
         this.singleProduct=product
-        console.log(this.singleProduct);
-        
+        this.features=product.productDetails.productfeatures;
+        console.log(this.features); 
       }
     )
-
-    
   }
+
+
 
 }

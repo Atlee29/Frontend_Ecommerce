@@ -1,26 +1,175 @@
 
 
-<div *ngFor="let product of productList">
+
+
+<!-- <nav class="navbar navbar-expand-lg shadow  mb-2 bg-body-tertiary rounded " id="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand fs-2" style="color: goldenrod;" href="#">S-Creation</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/Home"><i
+              class="fa-solid fa-house-chimney-window"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Smartpro"> <i class="fa-solid fa-star"></i> Smart Pro</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" routerLink="/Product" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false"><i class="fa-solid fa-cart-shopping"></i>
+            Product
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Sport Shoes</a></li>
+            <li><a class="dropdown-item" href="#">Shoes for mans</a></li>
+            <li><a class="dropdown-item" href="#">Shoes for womans</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn  px-4" data-bs-toggle="modal" data-bs-target="#loginModal"
+            routerLink="/Login">
+            <i class="fa-solid fa-right-to-bracket"></i> Sign-Out
+          </button>
+        </li>
+        <li class="nav-item">
+        today my work 
+       <a routerLink="/Addcart" class="nav-link">Cart </a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-warning" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav> -->
+<!-- <div *ngFor="let product of productList">
    <button (click)="getSingleproduct(product)"> <img [src]="'data:image/jpeg;base64,'+product.productPhoto" height="120"></button>
+</div> -->
+<form action="" >
+
+<div class="products mb-5 " id="Products">
+  <!-- <h1>Products</h1> -->
+  <div class="box">
+    <div *ngFor="let product of productList">
+    <div class="card">
+      <!-- <div class="small_card">
+        <i class="fa-solid fa-heart"></i>
+        <i class="fa-solid fa-share"></i>
+      </div> -->
+      <div class="image">
+        <!-- <img src="assets/imgs/shoes7.png"> -->
+        <a (click)="getSingleproduct(product)"> <img [src]="'data:image/jpeg;base64,'+product.productPhoto" height="120"></a>
+
+      </div>
+
+      <div class="products_text">
+        <h2>{{product.productDetails.productName}}</h2>
+        <p>
+          {{product.productStatus}}
+        </p>
+        <h3>&#8377;{{product.productPrice}}</h3>
+        <div class="products_star">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star-half-stroke"></i>
+        </div>
+        <a href="#" class="btn">Add To Cart</a>
+        &nbsp;
+        <a routerLink="/Order" class="btn">Buy</a>
+      </div>
+
+    </div>
+  </div>
+  </div>
 </div>
 
+</form>
 
-<!-- <table class="table table-dark" border="2">
-    <thead>
-      <tr>
-        <th scope="col">Product</th>
-        <th scope="col">Product Photo</th>
 
-       
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of productList">
-        <td>{{ product.productCategory }}</td>
-        <td><img [src]="'data:image/jpeg;base64,'+product.productPhoto" height="120"></td>
-      </tr>
-    </tbody>
-  </table> -->
+
+
+
+<!--footer info -->
+
+<div class="contanier-fluid mt-5" id="login">
+
+  <div class="d-flex bg-light ">
+    <div class="me-auto p-2 ms-5">
+      <a class="navbar-brand  ms-5" href="#" id="logo">S-Creation<span style="color: red;font: bold;">.</span></a>
+    </div>
+    <div class="me-1 p-2 me-2"><a href="#" class=""><i class="fa-brands fa-facebook"></i></a></div>
+    <div class="p-2 me-2"><a href="#" class=""><i class="fa-brands fa-twitter"></i></a></div>
+    <div class="p-2 me-2"><a href="#" class=""><i class="fa-brands fa-instagram"></i></a></div>
+    <div class="p-2 me-2"><a href="#" class=""><i class="fa-solid fa-magnifying-glass"></i></a></div>
+    <div class="p-2 me-2"><a href="#" class=""><i class="fa-solid fa-cart-shopping"></i></a></div>
+  </div>
+
+  <div class="container-fluid p-5 bg-dark">
+    <div class="row">
+      <div class="col-3 text-light">
+        <p>PAYMENT METHOD</p>
+        <hr class="divider">
+        <div class="fs-5">
+          <i class="fa-brands fa-cc-visa"></i>&nbsp;
+          <i class="fa-solid fa-credit-card"></i>&nbsp;
+          <i class="fa-brands fa-cc-paypal"></i>&nbsp;
+          <i class="fa-solid fa-rupiah-sign"></i>
+
+        </div>
+
+      </div>
+      <div class="col-3 text-light">
+        <p>The Company</p>
+        <hr class="divider">
+        <div class="row">
+          <div class="col-6">
+            <p>About Us</p>
+            <p>Blog</p>
+            <p> Delivery info</p>
+            <p></p>
+          </div>
+          <div class="col-6">
+            <p>Careers</p>
+            <p>Our Store</p>
+            <p>Team</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 text-light">
+        <p>More Information</p>
+        <hr class="divider">
+        <div class="row">
+          <div class="col-6">
+            <p>Owners</p>
+            <p>Contact</p>
+            <p>FAQ's</p>
+            <p></p>
+          </div>
+          <div class="col-6">
+            <p>Careers</p>
+            <p>Our Store</p>
+            <p>Team</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 text-light">
+        <p>Looking Good shoes</p>
+        <hr class="divider">
+        This site shows you your best shoes and best quality pair
+        thanks for vitis our site and enjoy your shopping..
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
   
 
    
