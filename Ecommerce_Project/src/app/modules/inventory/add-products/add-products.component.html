@@ -268,7 +268,7 @@
           <input type="text" id="modelNumber" formControlName="modelNumber" class="small-textbox">
         </div>
       </div>
-    </div>
+   
 
     <div formArrayName="productfeatures">
       <div *ngFor="let feature of productfeatures.controls; let i = index" [formGroupName]="i">
@@ -282,6 +282,7 @@
             <input type="text" id="productFeatureValue" formControlName="productFeatureValue" class="small-textbox">
           </div>
         </div>
+      </div>
         <div formArrayName="availableDealers">
           <div>
             <label>Dealer:</label>

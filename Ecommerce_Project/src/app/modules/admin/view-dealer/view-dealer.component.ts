@@ -15,6 +15,8 @@ export class ViewDealerComponent {
   ngOnInit(){
     this.dealerService.getDealers().subscribe((dealer:Dealer[])=>{
       this.dealerList=dealer
+      console.log(this.dealerList);
+      
     })
       
    
