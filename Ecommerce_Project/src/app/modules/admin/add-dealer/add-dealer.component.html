@@ -139,7 +139,8 @@
 
 <div class="step-form-container">
   <form [formGroup]="dealerForm" (ngSubmit)="addDealer()">
-    <div *ngIf="currentStep === 1">
+    <div *ngIf="currentStep === 1"class="card">
+      <div class="card-body">
       <h2>Dealer Information</h2>
       <div class="form-group">
         <label for="dealerName">Dealer Name</label>
@@ -164,8 +165,9 @@
       </div>
       <button type="button" class="btn btn-primary" (click)="next()">Next</button>
     </div>
-
-    <div *ngIf="currentStep === 2">
+</div>
+    <div *ngIf="currentStep === 2"class="card">
+      <div class="card-body">
       <h2>Dealer Address</h2>
       <div formGroupName="dealerAddress">
         <div class="form-group">
@@ -221,8 +223,9 @@
       <button type="button" class="btn btn-primary" (click)="previous()">Previous</button>
       <button type="button" class="btn btn-primary" (click)="next()">Next</button>
     </div>
-
-    <div *ngIf="currentStep === 3">
+</div>
+    <div *ngIf="currentStep === 3"class="card">
+      <div class="card-body">
       <h2>Dealer Bank Details</h2>
       <div formGroupName="dealerBankDetails">
       <div class="form-group">
@@ -263,6 +266,7 @@
     </div>
       <button type="button" class="btn btn-primary" (click)="previous()">Previous</button>
       <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
     </div>
   </form>
 </div>
