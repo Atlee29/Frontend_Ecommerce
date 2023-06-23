@@ -1,65 +1,88 @@
-.login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .card {
-    width: 600px;
-    height: 100%;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-  }
-  
-  .card-header {
-    background-color: #2196f3;
-    color: white;
-    padding: 10px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-  
-  .card-body {
-    padding: 30px;
-    align-content: center;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-top: 0;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  input {
-    width: 100%;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    padding: 10px 20px;
-    border-radius: 4px;
-    border: none;
-    background-color: #2196f3;
-    color: white;
-  }
-  
-  .step-form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin-top: 0;
-  }
-  
+/* Styling for the form container */
+.form-container {
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for form headings */
+h1 {
+
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Styling for form labels */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Styling for form input fields */
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+/* Styling for small textboxes */
+.small-textbox {
+  width: 100%;
+}
+
+/* Styling for the buttons */
+button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button[type="submit"] {
+  background-color:  #2196f3;
+}
+
+button[type="button"] {
+  background-color:  #2196f3;
+  color: #fff;
+  margin-right: 10px;
+}
+
+button[type="button"]:last-child {
+  margin-right: 0;
+}
+
+
+/* Styling for form rows */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.col {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+/* Styling for form groups */
+.form-group {
+  margin-bottom: 20px;
+}

@@ -5,11 +5,10 @@
 </div>
 </div>
 </div> -->
+
 <div class="side-menu-container">
   <h2 class="side-menu-title">Menu ({{userType}})</h2>
   <div class="side-menu-item" *ngFor="let role of employeeDashboardroles[0][userType]">
   <a (click)="onClick(role.path)">{{role.lable}}</a>
 </div>
-
-  <!-- Add more menu items as needed -->
 </div>

@@ -5,6 +5,9 @@
   background-color: #f4f4f4; /* Set the background color */
   padding: 10px;
   margin-top: 10px;
+  
+  font-family: 'GestaRegular',Arial, Helvetica, sans-serif;
+  overflow: auto;
 }
 
 /* Menu Title */

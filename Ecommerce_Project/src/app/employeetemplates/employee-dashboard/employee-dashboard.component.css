@@ -1,20 +1,30 @@
 .header-container {
-  background-color: #2781D5;
-  
+ background-color:  #2196f3;
+ position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
 }
 
 .row {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .sidebar {
-  background-color: #ffffff;
-  
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  background-color: #f8f9fa;
+  overflow-y: auto;
 }
 
 .main-content {
-  background-color: #fff;
-
+  margin-left: 250px; /* Width of the sidebar */
+  padding-top: 60px; /* Height of the header */
+  overflow-y: auto;
 }

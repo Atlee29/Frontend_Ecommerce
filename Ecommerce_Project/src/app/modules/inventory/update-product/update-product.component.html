@@ -1,4 +1,4 @@
-<form [formGroup]="updateForm" (ngSubmit)="saveData()">
+<!-- <form [formGroup]="updateForm" (ngSubmit)="saveData()">
   
     <div>
       <label for="productCategory">Product Category:</label>
@@ -81,4 +81,108 @@
     <button type="button" (click)="addDealers()">Add Dealer</button>
     <button type="submit">Save</button>
   </form>
+   -->
+   <form [formGroup]="updateForm" (ngSubmit)="saveData()">
+   
+    <div class="form-container">
+      <h1>Product Update Form</h1>
+      <hr><br>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="productCategory">Product Category:</label>
+          <input type="text" id="productCategory" formControlName="productCategory">
+        </div>
+        <div class="form-group">
+          <label for="productPrice">Product Price:</label>
+          <input type="text" id="productPrice" formControlName="productPrice">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="productAvailableCount">Product Available Count:</label>
+          <input type="text" id="productAvailableCount" formControlName="productAvailableCount">
+        </div>
+        <div class="form-group">
+          <label for="productRating">Product Rating:</label>
+          <input type="text" id="productRating" formControlName="productRating">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="productStatus">Product Status:</label>
+          <input type="text" id="productStatus" formControlName="productStatus">
+        </div>
+      </div>
+      <div class="form-group">
+        <div formGroupName="productDetails">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="productDetailsId">Product Details ID:</label>
+              <input type="text" id="productDetailsId" formControlName="productDetailsId">
+            </div>
+            <div class="form-group">
+              <label for="productName">Product Name:</label>
+              <input type="text" id="productName" formControlName="productName">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="manufacturerName">Manufacturer Name:</label>
+              <input type="text" id="manufacturerName" formControlName="manufacturerName">
+            </div>
+            <div class="form-group">
+              <label for="modelNumber">Model Number:</label>
+              <input type="text" id="modelNumber" formControlName="modelNumber">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div formArrayName="productfeatures" class="form-group">
+        <div *ngFor="let feature of productfeatures.controls; let i = index" [formGroupName]="i">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="productFeatureId">Feature ID:</label>
+              <input type="number" id="productFeatureId" formControlName="productFeatureId">
+            </div>
+            <div class="form-group">
+              <label for="productFeatureName">Feature Name:</label>
+              <input type="text" id="productFeatureName" formControlName="productFeatureName">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="productFeatureValue">Feature Value:</label>
+              <input type="text" id="productFeatureValue" formControlName="productFeatureValue">
+            </div>
+            <div class="form-group">
+              <button type="button" (click)="removeProductFeature(i)">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div formArrayName="availableDealers" class="form-group">
+        <div  class="form-row">
+          <label>Dealer:</label>
+            <select (change)="eventBind($event)">
+              <option value="">Select Dealer</option>
+              <option *ngFor="let dealer of dealerList" [value]="dealer.dealerId">{{dealer.dealerName}}</option>
+            </select>
+        </div>
+        <br>
+        <div class="form-row">
+          <label class="form-label" for="customFile">Select Photo:</label>
+          <input type="file" class="form-control" (change)="uploadPhoto($event)" />
+        </div>
+      </div>
+      
+      <div class="button-row">
+        <button type="button"  class="btn" (click)="createProductFeature()">Add Product Feature</button>
+        <button type="button"  class="btn" (click)="addDealers()">Add Dealer</button>
+        <br>
+        <button type="submit"  class="btn">Save</button>
+      </div>
+    </div>
+  </form>
+  
+  
   
