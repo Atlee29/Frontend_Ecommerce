@@ -1,10 +1,10 @@
-<table class="table table-dark" border="2">
+<table class="table table-white" border="1">
     <thead>
       <tr>
-        <th scope="col">product Id</th>
-        <th scope="col">Productcatagory</th>
-        <th scope="col">product Name</th>
-        <th scope="col"></th>
+        <th scope="col">Product Id</th>
+        <th scope="col">Product Catagory</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Operation </th>
 
       </tr>
     </thead>
@@ -13,8 +13,12 @@
         <td>{{ product.productId }}</td>
         <td>{{ product.productCategory}}</td>
         <td>{{ product.productDetails.productName}}</td>
-        <td><button (click)="navigateForUpdate(product.productId)">Update</button></td>
-  
+        <td>
+        <a class="material-icons" (click)="navigateForUpdate(product.productId)" style="color: rgb(0, 0, 0);" title="Update">edit</a>
+        &nbsp; &nbsp;
+        <a class="material-icons" style="color: rgb(0, 0, 0);" title="Delete">delete</a>  
+        
+      </td>
       </tr>
     </tbody>
   </table>
