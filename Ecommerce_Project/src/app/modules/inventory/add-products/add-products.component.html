@@ -3,14 +3,21 @@
 
 
 <form [formGroup]="addProductForm" (ngSubmit)="saveData()">
-    <div>
+  <div *ngIf="currentStep === 1" class="card">
+
+    <div class="card-body">
+      <h2>Product Information</h2>
+      <div class="form-group">
       <label for="productCategory">Product Category:</label>
       <input type="text" id="productCategory" formControlName="productCategory">
     </div>
+    
+    <div class="form-group">
     <div>
       <label for="productPrice">Product Price:</label>
       <input type="text" id="productPrice" formControlName="productPrice">
     </div>
+  </div>
     <div>
       <label for="productAvailableCount">Product Available Count:</label>
       <input type="text" id="productAvailableCount" formControlName="productAvailableCount">
@@ -23,13 +30,19 @@
       <label for="productStatus">Product Status:</label>
       <input type="text" id="productStatus" formControlName="productStatus">
     </div>
-   
-  
+    <div>
+      <label class="form-label" for="customFile">select photo</label>
+      <input type="file" class="form-control" (change)="uploadPhoto($event)"/>
+    </div>
+    <button type="button"  (click)="next()">Next</button>
+   </div>
+  </div>
     <div formGroupName="productDetails">
-      <div>
+      <div *ngIf="currentStep === 2" class="card">
+        <div class="card-body">
         <label for="productName">Product Name:</label>
         <input type="text" id="productName" formControlName="productName">
-      </div>
+      
       <div>
         <label for="manufacturerName">Manufacturer Name:</label>
         <input type="text" id="manufacturerName" formControlName="manufacturerName">
@@ -52,24 +65,35 @@
           </div> 
         </div>
       </div>
-    </div>
+      <div formArrayName="availableDealers">
+        <div>
+          <label>Dealer:</label>
+          <select (change)="eventBind($event)">
+            <option value="">Select Dealer</option>
+            <option *ngFor="let dealer of dealerList" [value]="dealer.dealerId">{{dealer.dealerName}}</option>
+          </select>
+          <div>
+          <button type="button"  (click)="previous()">Previous</button>
+          </div>
+          <div> <button type="button" (click)="createProductFeature()">Add Product Feature</button>
+            <button type="button" (click)="addDealers()">Add Dealer</button></div>
 
-    <div formArrayName="availableDealers">
-      <div>
-        <label>Dealer:</label>
-        <select (change)="eventBind($event)">
-          <option value="">Select Dealer</option>
-          <option *ngFor="let dealer of dealerList" [value]="dealer.dealerId">{{dealer.dealerName}}</option>
-        </select>
-      </div>
-      <div>
-        <label class="form-label" for="customFile">select photo</label>
-        <input type="file" class="form-control" (change)="uploadPhoto($event)"/>
-      </div>
+            <div><button type="submit">Save</button></div>
+        </div>
+        
     </div>
-    <button type="button" (click)="createProductFeature()">Add Product Feature</button>
-    <button type="button" (click)="addDealers()">Add Dealer</button>
-    <button type="submit">Save</button>
+  
+ 
+  </div>
+  
+ 
+  
+
+
+  </div>
+   
+</div>  
+   
   </form>
   
     <!-- <div formArrayName="availableDealers">

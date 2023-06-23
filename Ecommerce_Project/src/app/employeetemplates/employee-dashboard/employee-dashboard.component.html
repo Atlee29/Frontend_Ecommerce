@@ -1,11 +1,24 @@
-<div style="background-color: rgb(39, 129, 213); height: 50px;">
+<!-- <div style="background-color: rgb(39, 129, 213); height: 50px;">
     <app-employee-header></app-employee-header>
     </div>
     <div class="row w-100 m-0 p-o">
-        <div class="col-2" style="background-color: rgb(199, 176, 181);height: 300px;">
+        <div class="col-2" style="background-color: rgb(255, 255, 255);height: 300px;">
       <app-employee-side-manu></app-employee-side-manu>
     </div>
-    <div class="col-10" style="background-color: rgb(250, 252, 252); height: 300px;">
+    <div class="col-10" style="background-color: rgb(255, 255, 255); height: 300px;">
         <router-outlet></router-outlet>
     </div>
+    </div> -->
+    
+    <div class="header-container">
+      <app-employee-header></app-employee-header>
     </div>
+    <div class="row w-100 m-0 p-0">
+      <div class="col-2 sidebar">
+        <app-employee-side-manu></app-employee-side-manu>
+      </div>
+      <div class="col-10 main-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    

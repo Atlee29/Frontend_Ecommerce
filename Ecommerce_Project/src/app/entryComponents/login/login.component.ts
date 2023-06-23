@@ -16,11 +16,12 @@ export class LoginComponent {
 
   loginForm : FormGroup;
   userDetails:UserDetails;
+  showErrorMessage:boolean=false;
 
   ngOnInit(){
     this.loginForm = this.formBuilder.group({
       userName : ['', Validators.required],
-      password : ['', Validators.required]
+      password : ['', [Validators.required, Validators.minLength(6)]]
     })
    
   }
@@ -28,33 +29,40 @@ export class LoginComponent {
   
 
   getUserDetails(){
-    if((this.loginForm.value)){
-   // this.router.navigateByUrl('/empdash/admin');
-    this.employeeService.getUserDetails(this.loginForm.controls['userName'].value
-    ,this.loginForm.controls['password'].value)
-    .subscribe((users:UserDetails)=>{
-      console.log(users); 
-      if(this.loginForm.controls['userName'].value==users.userName
+    if((this.loginForm.invalid)){
+      this.showErrorMessage = true;
+      return;
+  }
+  this.employeeService.getUserDetails(this.loginForm.controls['userName'].value
+  ,this.loginForm.controls['password'].value)
+  .subscribe((users:UserDetails)=>{
+    console.log(users); 
+    if(this.loginForm.controls['userName'].value==users.userName
+    && this.loginForm.controls['password'].value==users.password
+    && users.userType=='admin'||users.userType=='inventory' ){
+         
+      sessionStorage.setItem('userType',users.userType);
+      alert('done'+users.userType)
+      this.router.navigateByUrl('/empdash/'+users.userType);
+      } 
+      else if(this.loginForm.controls['userName'].value==users.userName
       && this.loginForm.controls['password'].value==users.password
-      && users.userType=='admin'||users.userType=='inventory' ){
-           
-        sessionStorage.setItem('userType',users.userType);
-        alert('done'+users.userType)
-        this.router.navigateByUrl('/empdash/'+users.userType);
-        } 
-        else if(this.loginForm.controls['userName'].value==users.userName
-        && this.loginForm.controls['password'].value==users.password
-        && users.userType=='customer')
-        {
-          console.log();
-          
-          sessionStorage.setItem('userType',users.userType)
-          this.router.navigateByUrl('/custdash/customer');
-        }
-    })
-  
+      && users.userType=='customer')
+      {
+        console.log();
+        
+        sessionStorage.setItem('userType',users.userType)
+        this.router.navigateByUrl('/custdash/customer/viewProductsCustomer');
+      }
+  })
 
   }
+get userName(){
+  return this.loginForm.get('userName')
+}
+
+get password(){
+  return this.loginForm.get('password')
 }
 
 
