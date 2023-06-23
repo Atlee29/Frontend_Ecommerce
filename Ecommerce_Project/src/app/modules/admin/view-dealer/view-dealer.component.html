@@ -1,4 +1,4 @@
-
+<!-- 
 <div *ngIf="currentStep === 1">
     <h2>Dealers Details</h2>
   <table class="table table-dark" border="2">
@@ -78,7 +78,93 @@
       </tbody>
     </table>
     <button type="button" class="btn btn-primary" (click)="privious()">Previeous</button>
-  </div>     
+  </div>      -->
        
    
     
+  <div *ngIf="currentStep === 1">
+    <br>
+    <h2>Employee Details</h2>
+    <br>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Dealer Name</th>
+          <th scope="col">Mobile Number</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dealers of dealerList">
+          <td>{{dealers.dealerName }}</td>
+          <td>{{dealers.dealerMobileNumber }}</td>
+          <td>{{dealers.dealerEmail }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" (click)="next()">Address</button>
+    </div>  
+    
+    <div *ngIf="currentStep === 2">
+     <br>
+    <h2> Dealer Address</h2>
+    <br>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Dealer Name</th>
+          <th scope="col">House Number</th>
+          <th scope="col">Street</th>
+          <th scope="col">Area</th>
+          <th scope="col">City</th>
+          <th scope="col">Landmark</th>
+          <th scope="col">Pincode</th>
+          <th scope="col">State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dealers of dealerList">
+          <td>{{ dealers.dealerName }}</td>
+          <td>{{ dealers.dealerAddress.houseNumber}}</td>
+          <td>{{ dealers.dealerAddress.street}}</td>
+          <td>{{ dealers.dealerAddress.area }}</td>
+          <td>{{ dealers.dealerAddress.city }}</td>
+          <td>{{ dealers.dealerAddress.landmark }}</td>
+          <td>{{ dealers.dealerAddress.pincode }}</td>
+          <td>{{ dealers.dealerAddress.state }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <button type="button" class="btn btn-primary" (click)="next()">UserDetails</button>
+    <button type="button" style="float: right;" class="btn btn-primary" (click)="privious()">Previeous</button>
+    </div>
+    
+    <div *ngIf="currentStep === 3">
+      <br>
+      <h2>Dealer UserDetails</h2>
+      <br>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Dealer Name</th>
+            <th scope="col">bankAccountNumber</th>
+            <th scope="col">bankName</th>
+            <th scope="col">branchName</th>
+            <th scope="col">ifscNumber</th>
+            <th scope="col">Card Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dealers of dealerList">
+            <td>{{ dealers.dealerName }}</td>
+            <td>{{ dealers.dealerBankDetails.bankAccountNumber}}</td>
+            <td>{{ dealers.dealerBankDetails.bankName }}</td>
+            <td>{{ dealers.dealerBankDetails.branchName }}</td>
+            <td>{{ dealers.dealerBankDetails.ifscNumber }}</td>
+            <td>{{ dealers.dealerBankDetails.cardNumber }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-primary" (click)="privious()">Previeous</button>
+    </div>

@@ -1,57 +1,60 @@
 
-
-
-
 <form [formGroup]="addProductForm" (ngSubmit)="saveData()">
   <div *ngIf="currentStep === 1" class="card">
-
     <div class="card-body">
       <h2>Product Information</h2>
-      <div class="form-group">
-      <label for="productCategory">Product Category:</label>
-      <input type="text" id="productCategory" formControlName="productCategory">
-    </div>
-    
+        <div class="form-group">
+          <label for="productCategory">Product Category:</label>
+          <input type="text" id="productCategory" formControlName="productCategory">
+        </div>    
     <div class="form-group">
-    <div>
-      <label for="productPrice">Product Price:</label>
-      <input type="text" id="productPrice" formControlName="productPrice">
+      <div>
+        <label for="productPrice">Product Price:</label>
+        <input type="text" id="productPrice" formControlName="productPrice">
+      </div>
     </div>
-  </div>
-    <div>
-      <label for="productAvailableCount">Product Available Count:</label>
-      <input type="text" id="productAvailableCount" formControlName="productAvailableCount">
-    </div>
-    <div>
-      <label for="productRating">Product Rating:</label>
-      <input type="text" id="productRating" formControlName="productRating">
-    </div>
-    <div>
-      <label for="productStatus">Product Status:</label>
-      <input type="text" id="productStatus" formControlName="productStatus">
-    </div>
-    <div>
-      <label class="form-label" for="customFile">select photo</label>
-      <input type="file" class="form-control" (change)="uploadPhoto($event)"/>
-    </div>
+      <div>
+        <label for="productAvailableCount">Product Available Count:</label>
+        <input type="text" id="productAvailableCount" formControlName="productAvailableCount">
+      </div>
+      <div>
+        <label for="productRating">Product Rating:</label>
+        <input type="text" id="productRating" formControlName="productRating">
+      </div>
+      <div>
+        <label for="productStatus">Product Status:</label>
+        <input type="text" id="productStatus" formControlName="productStatus">
+      </div>
+      <div>
+        <label class="form-label" for="customFile">select photo</label>
+        <input type="file" class="form-control" (change)="uploadPhoto($event)"/>
+      </div>
+
     <button type="button"  (click)="next()">Next</button>
    </div>
   </div>
+
     <div formGroupName="productDetails">
       <div *ngIf="currentStep === 2" class="card">
         <div class="card-body">
-        <label for="productName">Product Name:</label>
-        <input type="text" id="productName" formControlName="productName">
-      
-      <div>
-        <label for="manufacturerName">Manufacturer Name:</label>
-        <input type="text" id="manufacturerName" formControlName="manufacturerName">
-      </div>
-      <div>
-        <label for="modelNumber">Model Number:</label>
-        <input type="text" id="modelNumber" formControlName="modelNumber">
-      </div>
-  
+          <label for="productName">Product Name:</label>
+          <input type="text" id="productName" formControlName="productName">
+        </div>
+        <div>
+          <label for="manufacturerName">Manufacturer Name:</label>
+          <input type="text" id="manufacturerName" formControlName="manufacturerName">
+        </div>
+        <div>
+          <label for="modelNumber">Model Number:</label>
+          <input type="text" id="modelNumber" formControlName="modelNumber">
+        </div>
+
+      <button type="button"  (click)="next()">Next</button>
+    </div>
+   </div>
+
+  <div *ngIf="currentStep === 3" class="card">
+
       <div formArrayName="productfeatures">
         <div *ngFor="let feature of productfeatures.controls , let i= index" [formGroupName]="i">
     
@@ -68,31 +71,20 @@
       <div formArrayName="availableDealers">
         <div>
           <label>Dealer:</label>
-          <select (change)="eventBind($event)">
-            <option value="">Select Dealer</option>
-            <option *ngFor="let dealer of dealerList" [value]="dealer.dealerId">{{dealer.dealerName}}</option>
-          </select>
-          <div>
-          <button type="button"  (click)="previous()">Previous</button>
+            <select (change)="eventBind($event)">
+              <option value="">Select Dealer</option>
+              <option *ngFor="let dealer of dealerList" [value]="dealer.dealerId">{{dealer.dealerName}}</option>
+            </select>
+        </div>
+      
+                <button type="button" (click)="createProductFeature()">Add Product Feature</button>&nbsp;
+                <button type="button"  (click)="previous()">Previous</button>&nbsp;
+                <button type="button" (click)="addDealers()">Add Dealer</button>&nbsp;
+                <button type="submit">Save</button>&nbsp;  
           </div>
-          <div> <button type="button" (click)="createProductFeature()">Add Product Feature</button>
-            <button type="button" (click)="addDealers()">Add Dealer</button></div>
-
-            <div><button type="submit">Save</button></div>
         </div>
         
-    </div>
-  
- 
-  </div>
-  
- 
-  
-
-
-  </div>
-   
-</div>  
+       
    
   </form>
   
