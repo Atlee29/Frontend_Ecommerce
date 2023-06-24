@@ -115,6 +115,8 @@
     align-items: center;
     justify-content: center;
     height: 60px;
+    padding: 5px;
+    
   
   }
   
@@ -124,7 +126,7 @@
     border: .5;
     border-radius: 2px ;
     width: 300px; /* Adjust the width as needed */
-    margin-top: 50px;
+    margin-top: 10PX;
     
   }
   
@@ -136,7 +138,13 @@
     color: #ffffff;
     border-radius: 2px ;
     cursor: pointer;
-    margin-top: 50px;
+    margin-top: 10PX;
     
+  }
+  .card {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
   }
   
