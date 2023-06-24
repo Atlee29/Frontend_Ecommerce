@@ -156,7 +156,7 @@
         <!-- <button *ngIf="step!=2 && registerForm.controls['customer'].valid" type="button" (click)="next_step()" class="btn btn-primary">Next</button> -->
         <button *ngIf="step!=2"type="button"(click)="next_step()" class="btn btn-primary">Next</button>
         <button *ngIf="step!=1" type="button" (click)="pre_step()" class="btn btn-primary">Previous</button>
-        <br><br>
+        
         <div *ngIf="showErrorMessage" class="text-danger">Please fill in all the required fields.</div>
         <button *ngIf="step==2" type="submit" class="btn btn-primary">Sign Up</button>
       </form>
