@@ -25,6 +25,11 @@ export class ProductsService {
     return this.httpClient.get('http://localhost:8989/inventory/getproductByName/'+productName)
   }
 
+  searchProduct(searchProduct:any){
+    return this.httpClient.get('http://localhost:8989/inventory/getByCatagOrName/'+searchProduct)
+
+  }
+
   updateProduct(product:any,productId:number){
     return this.httpClient.put('http://localhost:8989/inventory/updateProduct/'+productId,product);
   }

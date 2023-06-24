@@ -11,7 +11,7 @@ import { ProductsService } from 'src/app/service/products.service';
 export class ViewproductsForCustomerComponent {
 
   productList:Products[];
-  productName:string;
+  searchProduct:any;
   
 
   constructor(private productService:ProductsService
@@ -29,9 +29,14 @@ export class ViewproductsForCustomerComponent {
   }
 
   searchByName(){
-    this.productService.getProductByName(this.productName).subscribe(
+    this.productService.searchProduct(this.searchProduct).subscribe(
       (product:Products[])=>{
         this.productList=product;
+        // for(let prod of product){
+        //   if(prod.productCategory==this.searchProduct){
+        //     this.productList=product
+        //   }
+        // }
         console.log(product);
         
       }

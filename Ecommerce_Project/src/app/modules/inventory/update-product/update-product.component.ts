@@ -76,7 +76,7 @@ export class UpdateProductComponent {
   }
 
   createProductFeature(){
-  let newProductFeature:FormGroup=    this.formbulider.group({
+  let newProductFeature:FormGroup=this.formbulider.group({
     productFeatureId:[],
       productFeatureName:[''],
       productFeatureValue:['']
