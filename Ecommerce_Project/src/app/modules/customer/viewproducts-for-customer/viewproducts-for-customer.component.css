@@ -110,3 +110,24 @@
     background: linear-gradient(to right, #c72092 , #6c14d0);
     color: white;
 }
+.search-bar input[type="text"] {
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 3px 0 0 3px;
+    width: 300px; /* Adjust the width as needed */
+  }
+  
+  .search-bar button {
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    background-color: #555;
+    color: #fff;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+  }
+  .search-bar{
+    text-align: center;
+
+  }

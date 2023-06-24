@@ -53,32 +53,35 @@ pre_step(){
   this.step--;
 }
 
-get customerName(){
-  return this.registerForm.get('customerName');
+get customer(){
+  return this.registerForm.controls;
 }
+// get customerName(){
+//   return this.registerForm.get('customerName');
+// }
 
-get customerEmail(){
-  return this.registerForm.get('customerEmail');
-}
+// get customerEmail(){
+//   return this.registerForm.get('customerEmail');
+// }
 
-get customerMobileNumber(){
-  return this.registerForm.get('customerMobileNumber');
-}
+// get customerMobileNumber(){
+//   return this.registerForm.get('customerMobileNumber');
+// }
 
-get customerGender(){
-  return this.registerForm.get('customerGender');
-}
+// get customerGender(){
+//   return this.registerForm.get('customerGender');
+// }
 
-get userName(){
-  return this.registerForm.get('userName');
-}
+// get userName(){
+//   return this.registerForm.get('userName');
+// }
 
-get password(){
-  return this.registerForm.get('password');
-}
+// get password(){
+//   return this.registerForm.get('password');
+// }
 
-get userType(){
-  return this.registerForm.get('userType');
-}
+// get userType(){
+//   return this.registerForm.get('userType');
+// }
 
 }

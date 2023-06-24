@@ -11,6 +11,8 @@ import { ProductsService } from 'src/app/service/products.service';
 export class ViewproductsForCustomerComponent {
 
   productList:Products[];
+  productName:string;
+  
 
   constructor(private productService:ProductsService
     ,private router:Router){}
@@ -24,6 +26,16 @@ export class ViewproductsForCustomerComponent {
   }
   getSingleproduct(product:Products){
     this.router.navigateByUrl('custdash/customer/viewSingleProduct/'+product.productId);
+  }
+
+  searchByName(){
+    this.productService.getProductByName(this.productName).subscribe(
+      (product:Products[])=>{
+        this.productList=product;
+        console.log(product);
+        
+      }
+    );
   }
       
 }

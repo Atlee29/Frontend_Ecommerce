@@ -50,6 +50,11 @@
 <!-- <div *ngFor="let product of productList">
    <button (click)="getSingleproduct(product)"> <img [src]="'data:image/jpeg;base64,'+product.productPhoto" height="120"></button>
 </div> -->
+
+<div class="search-bar">
+  <input type="text" [(ngModel)]="productName" placeholder="Search By Name..." class="search-input">
+  <button type="button" (click)="searchByName()" class="search-button">Search</button>
+</div>
 <form action="" >
 
 <div class="products mb-5 " id="Products">
